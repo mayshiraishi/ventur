@@ -3,43 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ventur - Land Local Internships Without Getting Ghosted</title>
+  <title>Ventur - Hawaii Student Internships & Volunteer Opportunities</title>
   <style>
     /* -------------------------------------------------------------------------- */
-    /* SYSTEM DESIGN TOKENS & STYLING                                              */
-    /* Lookscout Dark Blue Theme (#2 Website Inspo Style)                         */
-    /* Deep Dark Sapphire, Midnight Navy, Electric Blue Accents & Geometric Art    */
+    /* POLISHED DARKER BLUE & HAWAIʻI COASTAL THEME (VISIBLE BEACH BACKGROUND)     */
     /* -------------------------------------------------------------------------- */
     :root {
-      /* Deep Dark Blue Palette Tokens */
-      --navy-deep: #0b132b;          /* Darkest Midnight Blue */
-      --navy-dark: #1c2541;          /* Deep Cobalt Slate */
-      --hero-blue: #1e3a8a;          /* Rich Royal Blue */
-      --electric-blue: #2563eb;      /* Vibrant Accent Blue */
-      --electric-hover: #1d4ed8;
-      --cyan-glow: #38bdf8;          /* Bright Sky Cyan Accent */
+      --bg-deep: #0b192c;
+      --bg-surface: #1e3e62;
+      --bg-card: #ffffff;
       
-      --bg-main: #0b132b;          /* Immersive Deep Navy Main Background */
-      --bg-card: #151d3b;          /* Rich Dark Card Background */
-      --bg-subtle: #1e293b;        /* Soft Cool Blue Highlight */
-      --bg-dark-card: #1e293b;     /* Dark Slate Card Background */
+      --blue-ocean: #0284c7;
+      --blue-bright: #0369a1;
+      --blue-sky: #38bdf8;
+      --blue-dark: #0f172a;
       
-      --text-main: #f8fafc;          /* Bright Crisp White/Ice */
-      --text-muted: #94a3b8;         /* Muted Cool Slate Gray */
-      --text-inverse: #ffffff;
+      --text-main: #0b192c;
+      --text-muted: #475569;
       
-      --border-color: #334155;
-      --border-dark: #1e293b;
-      --radius-sm: 10px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 32px;
       
-      --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.2);
-      --shadow-md: 0 14px 35px -5px rgba(0, 0, 0, 0.4), 0 8px 12px -6px rgba(15, 23, 42, 0.2);
-      --shadow-lg: 0 25px 50px -10px rgba(37, 99, 235, 0.35);
-      
-      --transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      --shadow-card: 0 20px 40px -15px rgba(11, 25, 44, 0.18);
+      --transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * {
@@ -54,15 +41,11 @@
     }
 
     body {
-      background-color: var(--bg-main);
-      color: var(--text-main);
-      line-height: 1.5;
+      background-color: #0b192c;
+      color: #f8fafc;
+      line-height: 1.6;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      background-image: 
-        radial-gradient(at 15% 15%, rgba(37, 99, 235, 0.15) 0px, transparent 50%),
-        radial-gradient(at 85% 80%, rgba(56, 189, 248, 0.1) 0px, transparent 60%);
-      background-attachment: fixed;
     }
 
     a {
@@ -71,22 +54,22 @@
     }
 
     .container {
-      max-width: 1140px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1.25rem;
+      padding: 0 1.5rem;
     }
 
     /* -------------------------------------------------------------------------- */
-    /* NAVBAR (Clean Sticky Header)                                               */
+    /* STICKY NAVBAR                                                              */
     /* -------------------------------------------------------------------------- */
     .navbar {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(11, 19, 43, 0.92);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 1000;
+      background: rgba(11, 25, 44, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 2px solid rgba(56, 189, 248, 0.2);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
@@ -94,618 +77,602 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 76px;
-    }
-
-    .brand-logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
+      height: 80px;
     }
 
     .brand-logo-img {
-      height: 52px;
+      height: 44px;
       width: auto;
-      display: block;
-      object-fit: contain;
       border-radius: 8px;
     }
 
-    /* -------------------------------------------------------------------------- */
-    /* BUTTONS & BADGES                                                            */
-    /* -------------------------------------------------------------------------- */
-    .btn {
-      display: inline-flex;
+    .nav-links {
+      display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 18px 34px;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      color: #bae6fd;
+      font-family: "Courier New", Courier, monospace;
       font-weight: 800;
-      font-size: 1.05rem;
-      border-radius: var(--radius-md);
-      transition: all var(--transition);
-      cursor: pointer;
-      border: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--blue-sky);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+      color: white;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 25px rgba(2, 132, 199, 0.3);
+      transition: var(--transition);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.5);
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* HERO SECTION                                                               */
+    /* -------------------------------------------------------------------------- */
+    .hero-section {
+      padding: 9rem 0 10rem 0;
       text-align: center;
-      min-height: 58px;
       position: relative;
-      overflow: hidden;
+      background: linear-gradient(rgba(11, 25, 44, 0.5), rgba(15, 35, 66, 0.65)), 
+                  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+      background-size: cover;
+      border-bottom: 3px solid rgba(56, 189, 248, 0.4);
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-      color: var(--text-inverse);
-      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px) scale(1.01);
-      box-shadow: 0 14px 35px rgba(37, 99, 235, 0.6);
-      background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
-    }
-
-    .btn-large {
-      padding: 20px 38px;
-      font-size: 1.2rem;
-      border-radius: var(--radius-lg);
-      width: 100%;
-      max-width: 540px;
-    }
-
+    /* Larger, Prominent Message Badge */
     .badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 22px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #93c5fd;
-      font-weight: 800;
-      font-size: 0.9rem;
+      gap: 12px;
+      padding: 14px 32px;
+      background: rgba(11, 25, 44, 0.9);
+      border: 2px solid rgba(56, 189, 248, 0.6);
+      color: #e0f2fe;
+      font-weight: 900;
+      font-size: 1.15rem;
       border-radius: 9999px;
-      margin-bottom: 1.5rem;
-      backdrop-filter: blur(8px);
+      margin-bottom: 2.5rem;
+      box-shadow: 0 8px 30px rgba(2, 132, 199, 0.4);
+      letter-spacing: -0.01em;
     }
 
     .badge-dot {
-      width: 8px;
-      height: 8px;
+      width: 10px;
+      height: 10px;
       background: #38bdf8;
       border-radius: 50%;
       box-shadow: 0 0 10px #38bdf8;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.7; }
-    }
-
-    /* -------------------------------------------------------------------------- */
-    /* SECTION 1: HERO (LOOKSCOUT STYLE DARK BLUE BANNER)                          */
-    /* -------------------------------------------------------------------------- */
-    .hero-section {
-      padding: 4.5rem 0 5.5rem 0;
-      text-align: center;
-      position: relative;
-      background: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #1e3a8a 100%);
-      color: white;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .hero-geo-shape-1 {
-      position: absolute;
-      top: -10%;
-      right: -5%;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-geo-shape-2 {
-      position: absolute;
-      bottom: -15%;
-      left: -8%;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(37, 99, 235, 0.2) 0%, transparent 70%);
-      pointer-events: none;
     }
 
     .hero-title {
-      font-size: clamp(2.3rem, 5.5vw, 3.8rem);
+      font-size: clamp(2.8rem, 6.5vw, 4.8rem);
       font-weight: 900;
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
+      line-height: 1.12;
+      margin-bottom: 1.5rem;
       letter-spacing: -0.03em;
       color: #ffffff;
-      max-width: 900px;
+      max-width: 980px;
       margin-left: auto;
       margin-right: auto;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
     }
 
     .hero-title-highlight {
-      background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #38bdf8;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8), 0 0 25px rgba(56, 189, 248, 0.6);
+      display: inline-block;
+      padding: 0 4px;
     }
 
     .hero-subtitle {
       font-size: 1.25rem;
-      color: #cbd5e1;
-      max-width: 740px;
-      margin: 0 auto 2.25rem auto;
+      color: #f1f5f9;
+      max-width: 760px;
+      margin: 0 auto 3rem auto;
       font-weight: 500;
-      line-height: 1.6;
+      line-height: 1.7;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
     }
 
-    .hero-cta-wrapper {
-      margin-bottom: 3.5rem;
-    }
-
-    .hero-card-preview {
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: var(--radius-xl);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-      padding: 1.75rem;
-      max-width: 840px;
-      margin: 0 auto;
-      text-align: left;
-      transition: transform var(--transition);
-    }
-
-    .hero-card-preview:hover {
-      transform: translateY(-4px);
-    }
-
-    .mock-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 14px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      margin-bottom: 1.25rem;
-    }
-
-    .mock-title {
-      font-weight: 800;
-      font-size: 1rem;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .mock-tag {
-      background: rgba(56, 189, 248, 0.15);
-      color: #38bdf8;
-      font-size: 0.8rem;
-      font-weight: 800;
-      padding: 6px 16px;
-      border-radius: 9999px;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-    }
-
-    .mock-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .mock-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(30, 41, 59, 0.8);
-      padding: 16px 20px;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all var(--transition);
-    }
-
-    .mock-item:hover {
-      border-color: rgba(56, 189, 248, 0.5);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-      transform: translateX(4px);
-    }
-
-    .mock-item-info {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .mock-avatar {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #2563eb 0%, #0284c7 100%);
-      color: #ffffff;
-      display: flex;
+    .btn-glow {
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-    }
-
-    .trust-bar {
-      margin-top: 3.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      font-size: 0.85rem;
-      color: #94a3b8;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .trust-pill {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #e2e8f0;
-    }
-
-    /* -------------------------------------------------------------------------- */
-    /* SECTION 2: THE PROBLEM                                                     */
-    /* -------------------------------------------------------------------------- */
-    .problem-section {
-      padding: 5rem 0;
-      background: #0d152f;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .problem-bg-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.18;
-      pointer-events: none;
-    }
-
-    .quote-card {
-      background: linear-gradient(135deg, #151d3b 0%, #0f172a 100%);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      border-radius: var(--radius-xl);
-      padding: 3.5rem 2.5rem;
-      text-align: center;
-      max-width: 880px;
-      margin: 0 auto;
-      box-shadow: var(--shadow-md);
-      position: relative;
-      z-index: 2;
+      gap: 12px;
+      padding: 20px 42px;
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
       color: white;
+      font-weight: 900;
+      font-size: 1.15rem;
+      border-radius: var(--radius-md);
+      box-shadow: 0 12px 35px rgba(2, 132, 199, 0.5);
+      transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.4);
     }
 
-    .quote-text {
-      font-size: 1.55rem;
-      font-weight: 800;
-      color: #38bdf8;
-      margin-bottom: 1.25rem;
-      line-height: 1.35;
-    }
-
-    .cost-text {
-      font-size: 1.1rem;
-      color: #cbd5e1;
-      font-weight: 500;
-      line-height: 1.6;
+    .btn-glow:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(56, 189, 248, 0.8);
+      background: linear-gradient(135deg, #0369a1 0%, #1d4ed8 100%);
     }
 
     /* -------------------------------------------------------------------------- */
-    /* SECTION 3: WHAT YOU GET & PRICE (HOW IT WORKS IN 3 STEPS)                  */
+    /* LIVE OPPORTUNITIES DIRECTORY & PAGINATION                                   */
     /* -------------------------------------------------------------------------- */
-    .solution-section {
-      padding: 5.5rem 0;
-      background: #0b132b;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    .opportunities-section {
+      padding: 7rem 0;
+      background: linear-gradient(180deg, #0f2342 0%, #0a1628 100%);
+      border-bottom: 2px solid rgba(56, 189, 248, 0.2);
     }
 
     .section-head {
       text-align: center;
-      max-width: 700px;
-      margin: 0 auto 3.5rem auto;
+      max-width: 750px;
+      margin: 0 auto 2.5rem auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--blue-sky);
+      font-size: 0.8rem;
+      font-weight: 900;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .section-title {
-      font-size: 2.35rem;
+      font-size: 2.75rem;
       font-weight: 900;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
       color: #ffffff;
+    }
+
+    /* Search & Filter Controls */
+    .search-filter-wrapper {
+      max-width: 800px;
+      margin: 0 auto 3rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 16px 24px;
+      background: rgba(30, 62, 98, 0.7);
+      border: 2px solid rgba(56, 189, 248, 0.35);
+      border-radius: var(--radius-sm);
+      font-size: 1.05rem;
+      color: #ffffff;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-input::placeholder {
+      color: #94a3b8;
+    }
+
+    .search-input:focus {
+      border-color: var(--blue-sky);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(30, 62, 98, 0.8);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #bae6fd;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--blue-ocean);
+      color: #ffffff;
+      border-color: var(--blue-sky);
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+    }
+
+    .opp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .opp-card {
+      background: rgba(14, 30, 54, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .opp-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--blue-sky);
+      box-shadow: 0 25px 50px rgba(56, 189, 248, 0.25);
+    }
+
+    .opp-img-wrap {
+      width: 100%;
+      height: 190px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .opp-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .opp-card:hover .opp-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .opp-card-body {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .opp-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .opp-type {
+      background: #0284c7;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .opp-spots {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--blue-sky);
+      background: rgba(56, 189, 248, 0.15);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .opp-card h3 {
+      font-size: 1.35rem;
+      font-weight: 900;
+      margin-bottom: 0.4rem;
+      color: #ffffff;
+    }
+
+    .opp-company {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--blue-sky);
+      margin-bottom: 0.75rem;
+    }
+
+    .opp-loc {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .opp-desc {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .opp-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    .apply-link {
+      background: var(--blue-ocean);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      transition: var(--transition);
+    }
+
+    .apply-link:hover {
+      background: var(--blue-sky);
+      color: var(--bg-deep);
+    }
+
+    /* Pagination Controls */
+    .pagination-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 2rem;
+    }
+
+    .page-btn {
+      background: rgba(30, 62, 98, 0.8);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #bae6fd;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .page-btn.active, .page-btn:hover {
+      background: var(--blue-ocean);
+      color: #ffffff;
+      border-color: var(--blue-sky);
+    }
+
+    .page-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* HOW IT WORKS SECTION                                                       */
+    /* -------------------------------------------------------------------------- */
+    .solution-section {
+      padding: 7rem 0;
+      background: #0b192c;
+      color: #f8fafc;
     }
 
     .steps-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.25rem;
       margin-bottom: 4rem;
     }
 
     .step-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem 2rem;
+      background: rgba(30, 62, 98, 0.5);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: var(--radius-md);
+      padding: 3rem 2.25rem;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
       position: relative;
-      box-shadow: var(--shadow-sm);
-      transition: all var(--transition);
-      overflow: hidden;
     }
 
     .step-card:hover {
       transform: translateY(-6px);
-      box-shadow: var(--shadow-md);
-      border-color: #38bdf8;
-      background: #192347;
+      box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+      border-color: var(--blue-sky);
     }
 
-    .step-card-img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-      filter: brightness(0.85) contrast(1.1);
-      border-radius: var(--radius-sm);
-      margin-bottom: 1.5rem;
-      opacity: 0.85;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .step-number {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    .step-icon-box {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
       color: white;
-      font-weight: 800;
-      font-size: 1.15rem;
-      border-radius: 50%;
+      font-weight: 900;
+      font-size: 1.5rem;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+      margin-bottom: 1.75rem;
+      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.4);
     }
 
     .step-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-      font-weight: 800;
+      font-size: 1.4rem;
+      font-weight: 900;
+      margin-bottom: 0.75rem;
       color: #ffffff;
     }
 
     .step-card p {
-      color: var(--text-muted);
-      font-size: 1rem;
+      color: #cbd5e1;
+      font-size: 1.05rem;
       line-height: 1.6;
-    }
-
-    .price-box {
-      background: linear-gradient(135deg, #151d3b 0%, #1c2541 50%, #1e3a8a 100%);
-      color: white;
-      border-radius: var(--radius-xl);
-      padding: 3.5rem 2rem;
-      text-align: center;
-      max-width: 660px;
-      margin: 0 auto;
-      box-shadow: var(--shadow-lg);
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .price-box::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .price-amount {
-      font-size: 4.2rem;
-      font-weight: 900;
-      line-height: 1;
-      margin: 1rem 0 0.5rem 0;
-      color: #38bdf8;
-      text-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-    }
-
-    .free-subtitle {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #93c5fd;
-      margin-top: -0.25rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .price-guarantee {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      padding: 20px 24px;
-      border-radius: var(--radius-md);
-      margin-top: 2rem;
-      font-size: 1rem;
-      line-height: 1.6;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      color: #e2e8f0;
     }
 
     /* -------------------------------------------------------------------------- */
-    /* SECTION 4: PROOF                                                           */
+    /* 100% FREE COMMITMENT SECTION                                               */
+    /* -------------------------------------------------------------------------- */
+    .free-promise-section {
+      padding: 7rem 0;
+      background: linear-gradient(135deg, #1e3e62 0%, #0b192c 100%);
+      border-top: 2px solid rgba(56, 189, 248, 0.3);
+      border-bottom: 2px solid rgba(56, 189, 248, 0.3);
+      scroll-margin-top: 90px;
+    }
+
+    .free-promise-card {
+      background: rgba(14, 30, 54, 0.85);
+      border: 2px solid rgba(56, 189, 248, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 4rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .free-promise-card h2 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #ffffff;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .free-promise-card h2 span {
+      color: var(--blue-sky);
+    }
+
+    .free-promise-card p {
+      color: #cbd5e1;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* -------------------------------------------------------------------------- */
+    /* WHY WE BUILT VENTUR SECTION                                                */
     /* -------------------------------------------------------------------------- */
     .proof-section {
-      padding: 5.5rem 0;
-      background: #0d152f;
+      padding: 7rem 0;
+      background: linear-gradient(180deg, #0b192c 0%, #1e3e62 100%);
+      scroll-margin-top: 90px;
     }
 
     .proof-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-xl);
-      padding: 3.25rem;
-      max-width: 880px;
+      background: rgba(14, 30, 54, 0.9);
+      border: 2px solid rgba(56, 189, 248, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 4rem 3rem;
+      max-width: 900px;
       margin: 0 auto;
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
       display: flex;
-      gap: 2.25rem;
+      gap: 3rem;
       align-items: center;
     }
 
-    .proof-img {
-      width: 170px;
-      height: 170px;
-      border-radius: var(--radius-lg);
-      object-fit: cover;
+    .proof-badge-graphic {
+      width: 180px;
+      height: 180px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+      border: 3px solid rgba(255, 255, 255, 0.8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
-      border: 3px solid #38bdf8;
-      box-shadow: var(--shadow-sm);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .proof-badge-graphic span {
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.3;
     }
 
     .proof-content h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-      font-weight: 800;
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
       color: #ffffff;
+      letter-spacing: -0.02em;
     }
 
     .proof-content p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      line-height: 1.65;
+      color: #cbd5e1;
+      font-size: 1.15rem;
+      line-height: 1.7;
     }
 
     /* -------------------------------------------------------------------------- */
-    /* SECTION 5: OBJECTIONS & ANSWERS                                            */
-    /* -------------------------------------------------------------------------- */
-    .faq-section {
-      padding: 5.5rem 0;
-      background: #0b132b;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.75rem;
-      max-width: 940px;
-      margin: 0 auto;
-    }
-
-    .faq-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 2.25rem;
-      box-shadow: var(--shadow-sm);
-      transition: transform var(--transition);
-    }
-
-    .faq-card:hover {
-      transform: translateY(-4px);
-      border-color: #38bdf8;
-      box-shadow: var(--shadow-md);
-      background: #192347;
-    }
-
-    .faq-card h3 {
-      font-size: 1.25rem;
-      font-weight: 800;
-      margin-bottom: 0.75rem;
-      color: #ffffff;
-    }
-
-    .faq-card p {
-      color: var(--text-muted);
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    /* -------------------------------------------------------------------------- */
-    /* SECTION 6: SIGN-UP CALL TO ACTION (EMBEDDED GOOGLE FORM)                   */
+    /* SIGN-UP CALL TO ACTION (EMBEDDED GOOGLE FORM)                              */
     /* -------------------------------------------------------------------------- */
     .cta-section {
-      padding: 6.5rem 0;
+      padding: 8rem 0;
       text-align: center;
-      background: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #1e3a8a 100%);
+      background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.15) 0%, transparent 70%), #0b192c;
       position: relative;
-      overflow: hidden;
-      color: white;
-    }
-
-    .cta-geo-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 65%);
-      pointer-events: none;
     }
 
     .cta-box {
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: var(--radius-xl);
-      padding: 3rem 1.5rem;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-      max-width: 820px;
+      background: rgba(14, 30, 54, 0.9);
+      border: 2px solid rgba(56, 189, 248, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 4rem 2.5rem;
+      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5);
+      max-width: 860px;
       margin: 0 auto;
-      position: relative;
-      z-index: 2;
     }
 
     .cta-box h2 {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       font-weight: 900;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
       letter-spacing: -0.025em;
       color: #ffffff;
     }
 
     .cta-prompt-line {
-      color: #cbd5e1;
-      font-size: 1.15rem;
-      margin-bottom: 2rem;
-      max-width: 620px;
-      margin-left: auto;
-      margin-right: auto;
+      color: var(--blue-sky);
+      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
+      font-weight: 700;
     }
 
-    /* Responsive Form Container Wrapper */
     .form-embed-wrapper {
       width: 100%;
-      max-width: 700px;
+      max-width: 740px;
       margin: 0 auto;
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-sm);
       overflow: hidden;
       background: #ffffff;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 30px rgba(2, 132, 199, 0.2);
+      border: 1px solid rgba(56, 189, 248, 0.4);
     }
 
     .form-embed-wrapper iframe {
@@ -715,224 +682,461 @@
       display: block;
     }
 
-    .cta-followup-line {
-      font-size: 0.95rem;
-      color: #94a3b8;
-      margin-top: 1.5rem;
-    }
-
-    /* -------------------------------------------------------------------------- */
-    /* FOOTER                                                                     */
-    /* -------------------------------------------------------------------------- */
     .footer {
-      padding: 2.5rem 0;
+      padding: 3rem 0;
       text-align: center;
       color: #94a3b8;
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      background: #0b132b;
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(56, 189, 248, 0.2);
+      background: #050b14;
+      font-weight: 700;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 640px) {
-      .hero-title { font-size: 2rem; }
-      .proof-card { flex-direction: column; text-align: center; padding: 2rem; }
-      .proof-img { width: 100%; height: 200px; }
-      .mock-item { flex-direction: column; align-items: flex-start; gap: 10px; }
-      .cta-box { padding: 2rem 1rem; }
-      .cta-box h2 { font-size: 1.9rem; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-title { font-size: 2.2rem; }
+      .proof-card { flex-direction: column; text-align: center; padding: 2.5rem 1.5rem; }
+      .free-promise-card { padding: 2.5rem 1.5rem; }
+      .cta-box { padding: 2.5rem 1.25rem; }
+      .cta-box h2 { font-size: 2rem; }
       .form-embed-wrapper iframe { height: 950px !important; }
-      .trust-bar { gap: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Clean Navbar with Attached Logo File -->
+  <!-- Professional Sticky Navbar -->
   <nav class="navbar">
     <div class="container nav-container">
       <a href="#" class="brand-logo" aria-label="Ventur Home">
         <img src="Gemini_Generated_Image_k5z5nsk5z5nsk5z5.png" alt="Ventur Logo" class="brand-logo-img">
       </a>
+      
+      <div class="nav-links">
+        <a href="#opportunities" class="nav-link">Opportunities</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#free-promise" class="nav-link">100% Free</a>
+        <a href="#why-built" class="nav-link">Our Why</a>
+        <a href="#signup" class="nav-cta">Get Started Free</a>
+      </div>
     </div>
   </nav>
 
-  <!-- SECTION 1: HERO -->
+  <!-- HERO SECTION WITH VISIBLE HAWAIʻI BEACH BACKGROUND -->
   <section class="hero-section">
-    <div class="hero-geo-shape-1"></div>
-    <div class="hero-geo-shape-2"></div>
-    
-    <div class="container" style="position: relative; z-index: 2;">
+    <div class="container">
       <div class="badge">
         <div class="badge-dot"></div>
-        <span>Direct Access for High Schoolers — 100% Free</span>
+        <span>Empowering Hawaiʻi's Next Generation — 100% Free</span>
       </div>
       
-      <!-- Headline -->
-      <h1 class="hero-title">Ventur connects <strong>Hawaiʻi's students</strong> with <strong>internships</strong> and <strong>volunteer opportunities</strong> <span class="hero-title-highlight">that matter</span>.</h1>
+      <h1 class="hero-title">Connecting <strong>Hawaii's High school Students</strong> with <span class="hero-title-highlight">Verified Internships & Volunteer Roles</span>.</h1>
       
-      <!-- Subtitle -->
-      <p class="hero-subtitle">We give you direct contact info for local managers actively hiring high schoolers, so you skip online application black holes.</p>
+      <p class="hero-subtitle">Stop searching across dozens of scattered tabs. Ventur brings together active, hard-to-find employer openings and volunteer hours on Oʻahu into one central platform.</p>
 
-      <!-- BUTTON 1: Scrolls down to signup form -->
-      <div class="hero-cta-wrapper">
-        <a href="#signup" class="btn btn-primary btn-large">
-          Get Instant Access to Verified Contacts (Free)
+      <div>
+        <a href="#signup" class="btn-glow">
+          Unlock Verified Opportunities Now
         </a>
       </div>
-
-      <!-- Visual Preview Card -->
-      <div class="hero-card-preview">
-        <div class="mock-header">
-          <span class="mock-title">
-            <svg width="20" height="20" fill="none" stroke="#38bdf8" stroke-width="2.5" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
-            Live Verified High School Openings
-          </span>
-          <span class="mock-tag">Direct Lines Ready</span>
-        </div>
-        <div class="mock-list">
-          <div class="mock-item">
-            <div class="mock-item-info">
-              <div class="mock-avatar">M</div>
-              <div>
-                <strong style="display: block; font-size: 0.95rem; color: #ffffff;">Marketing Assistant (Paid)</strong>
-                <span style="font-size: 0.85rem; color: #94a3b8;">Local Media Group &bull; Hiring Manager: Sarah T.</span>
-              </div>
-            </div>
-            <span style="font-size: 0.85rem; font-weight: 800; color: #38bdf8;">Direct Email + Phone Verified</span>
-          </div>
-          <div class="mock-item">
-            <div class="mock-item-info">
-              <div class="mock-avatar" style="background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);">T</div>
-              <div>
-                <strong style="display: block; font-size: 0.95rem; color: #ffffff;">Junior Web Tech & Graphics</strong>
-                <span style="font-size: 0.85rem; color: #94a3b8;">Community Studio &bull; Founder: Mark R.</span>
-              </div>
-            </div>
-            <span style="font-size: 0.85rem; font-weight: 800; color: #38bdf8;">Direct Email + Phone Verified</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Trust Badges -->
-      <div class="trust-bar">
-        <div class="trust-pill">🛡️ 100% Manually Verified</div>
-        <div class="trust-pill">⚡ Direct Hiring Manager Lines</div>
-        <div class="trust-pill">🤝 Zero Automated Resumes</div>
-      </div>
     </div>
   </section>
 
-  <!-- SECTION 2: THE PROBLEM -->
-  <section class="problem-section">
-    <img src="https://images.unsplash.com/photo-1542259009477-fcd80c1ee35b?auto=format&fit=crop&w=1600&q=80" alt="Hawaiʻi atmosphere" class="problem-bg-image">
-    <div class="container">
-      <div class="quote-card">
-        <div class="quote-text">
-          “I sent 30 applications on automated job sites, waited weeks, and didn't receive a single reply.”
-        </div>
-        <div class="cost-text">
-          Right now, your applications sit unread in general HR inboxes while other students grab real experience through personal connections.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 3: WHAT YOU GET & PRICE -->
-  <section class="solution-section">
+  <!-- LIVE OPPORTUNITIES DIRECTORY SECTION WITH SEARCH, CATEGORY FILTERS & PAGINATION -->
+  <section class="opportunities-section" id="opportunities">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title">How You Get Hired in 3 Simple Steps</h2>
-        <p style="color: var(--text-muted); font-size: 1.1rem;">No endless forms. No automated rejection emails.</p>
+        <span class="section-tag">Live Platform Feed</span>
+        <h2 class="section-title">Active Positions Ready for Applications</h2>
+        <p style="color: #94a3b8; font-size: 1.15rem;">Complete listing of 100 verified internships and community service roles available to high school students across Oʻahu.</p>
+      </div>
+
+      <!-- Search & Filter Controls -->
+      <div class="search-filter-wrapper">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search 100+ opportunities by keyword, title, or location (e.g., Honolulu, Marine, Library)..." onkeyup="filterOpportunities()">
+        
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="setCategory('all', this)">All Opportunities (100)</button>
+          <button class="filter-btn" onclick="setCategory('conservation', this)">Conservation & Marine</button>
+          <button class="filter-btn" onclick="setCategory('mentorship', this)">Youth Mentorship & Tutoring</button>
+          <button class="filter-btn" onclick="setCategory('tech', this)">Tech, Media & Design</button>
+          <button class="filter-btn" onclick="setCategory('healthcare', this)">Healthcare & Wellness</button>
+          <button class="filter-btn" onclick="setCategory('community', this)">Community & Public Service</button>
+        </div>
+      </div>
+
+      <div class="opp-grid" id="opportunityGrid">
+        
+        <!-- 1 -->
+        <div class="opp-card" data-category="conservation" data-keywords="marine conservation data assistant blue planet Honolulu">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Marine"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type">Paid Internship ($16.50/hr)</span><span class="opp-spots">3 Openings</span></div>
+            <h3>Marine Conservation Data Assistant</h3>
+            <div class="opp-company">Blue Planet Research Lab</div>
+            <div class="opp-loc">Honolulu & South Shore, Oʻahu</div>
+            <p class="opp-desc">Assist marine biologists with reef preservation data collection, community outreach, and digital archiving.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: info@blueplanet.org</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="opp-card" data-category="mentorship" data-keywords="youth arts literacy mentor community arts downtown">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="Mentor"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#2563eb;">Volunteer Hours</span><span class="opp-spots">5 Openings</span></div>
+            <h3>Youth Arts & Literacy Mentor</h3>
+            <div class="opp-company">Oʻahu Community Arts Center</div>
+            <div class="opp-loc">Downtown Honolulu</div>
+            <p class="opp-desc">Lead after-school creative workshops and reading circles for elementary students while earning official service hours.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: outreach@oahuarts.org</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="opp-card" data-category="tech" data-keywords="junior social media design assistant kakaako tech">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="Tech"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#0284c7;">Paid Internship ($17.50/hr)</span><span class="opp-spots">2 Openings</span></div>
+            <h3>Junior Social Media & Design Assistant</h3>
+            <div class="opp-company">Kakaʻako Small Business Alliance</div>
+            <div class="opp-loc">Kakaʻako / Remote Hybrid</div>
+            <p class="opp-desc">Design promotional graphics and help local island entrepreneurs build their digital presence and community outreach.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: hello@kakaakobiz.com</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="opp-card" data-category="conservation" data-keywords="native forest restoration aide oahu rainforest tantalus">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1516214104703-d870798883c5?auto=format&fit=crop&w=600&q=80" alt="Forest"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#16a34a;">Volunteer Hours</span><span class="opp-spots">8 Openings</span></div>
+            <h3>Native Forest Restoration Aide</h3>
+            <div class="opp-company">Oʻahu Rainforest Alliance</div>
+            <div class="opp-loc">Tantalus & Mānoa Trails</div>
+            <p class="opp-desc">Help plant native trees, clear invasive species, and learn watershed conservation science alongside field experts.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: volunteer@oahurainforest.org</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="opp-card" data-category="mentorship" data-keywords="after school stem tutor assistant kailua windward">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80" alt="STEM"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#2563eb;">Paid Internship ($17.00/hr)</span><span class="opp-spots">4 Openings</span></div>
+            <h3>After-School STEM Tutor & Assistant</h3>
+            <div class="opp-company">Kalaheo Learning Hub</div>
+            <div class="opp-loc">Kailua & Windward Coast</div>
+            <p class="opp-desc">Assist middle school students with basic coding, math games, and interactive science experiments.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: jobs@kalaheohub.edu</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="opp-card" data-category="tech" data-keywords="student podcasting digital archive aide bishop museum">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Podcast"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#0284c7;">Volunteer Hours</span><span class="opp-spots">3 Openings</span></div>
+            <h3>Student Podcasting & Digital Archive Aide</h3>
+            <div class="opp-company">Bishop Museum Youth Media Lab</div>
+            <div class="opp-loc">Honolulu (Kalihi)</div>
+            <p class="opp-desc">Record oral history interviews with local cultural leaders and assist with audio editing for student podcasts.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: youthlab@bishopmuseum.org</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="opp-card" data-category="community" data-keywords="community farmers market coordinator haleiwa north shore">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1488459716790-a3db5ea5d7ac?auto=format&fit=crop&w=600&q=80" alt="Market"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#d97706;">Volunteer Hours</span><span class="opp-spots">6 Openings</span></div>
+            <h3>Community Farmers Market Coordinator</h3>
+            <div class="opp-company">Haleʻiwa Farmers & Artisans Co-op</div>
+            <div class="opp-loc">North Shore (Haleʻiwa)</div>
+            <p class="opp-desc">Welcome local vendors, manage visitor information booths, and assist with community sustainability workshops.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: market@haleiwaartisans.com</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="opp-card" data-category="community" data-keywords="junior library literacy aide pearl city public library">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=600&q=80" alt="Library"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#d97706;">Volunteer Hours</span><span class="opp-spots">4 Openings</span></div>
+            <h3>Junior Library & Literacy Aide</h3>
+            <div class="opp-company">Hawaii State Public Library System</div>
+            <div class="opp-loc">Pearl City Public Library</div>
+            <p class="opp-desc">Organize youth book collections, assist children's librarians with reading programs, and manage community book drives.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: volunteers@librarieshawaii.org</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="opp-card" data-category="healthcare" data-keywords="hospital volunteer service navigator kapiolani straub">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80" alt="Health"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#e11d48;">Healthcare Volunteer</span><span class="opp-spots">10 Openings</span></div>
+            <h3>Hospital Patient Navigator & Support Aide</h3>
+            <div class="opp-company">Hawaii Pacific Health (Straub & Kapiʻolani)</div>
+            <div class="opp-loc">Honolulu & Punahou</div>
+            <p class="opp-desc">Assist staff with patient transport, information desk navigation, and welcoming families in medical centers.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: careers@hphhawaii.org</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="opp-card" data-category="conservation" data-keywords="aquarium educator marine science waikiki aquarium">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Aquarium"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type">Volunteer Hours</span><span class="opp-spots">12 Openings</span></div>
+            <h3>Aquarium Educator & Guest Ambassador</h3>
+            <div class="opp-company">Waikiki Aquarium</div>
+            <div class="opp-loc">Waikiki & Kalakaua Ave</div>
+            <p class="opp-desc">Represent the aquarium by engaging visitors in interactive marine science presentations and conservation education.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: volunteer@waikikiaquarium.org</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="opp-card" data-category="community" data-keywords="food bank warehouse distribution volunteer hawaii foodbank">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80" alt="Foodbank"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#d97706;">Community Service</span><span class="opp-spots">15 Openings</span></div>
+            <h3>Food Distribution & Warehouse Aide</h3>
+            <div class="opp-company">Hawaii Foodbank</div>
+            <div class="opp-loc">Mapunapuna (Honolulu)</div>
+            <p class="opp-desc">Inspect, sort, and pack emergency food boxes to support families facing food insecurity across Oʻahu.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: help@hawaiifoodbank.org</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="opp-card" data-category="mentorship" data-keywords="youth sports recreation coach ymca honolulu">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=600&q=80" alt="Sports"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#2563eb;">Volunteer Hours</span><span class="opp-spots">8 Openings</span></div>
+            <h3>Youth Sports & Recreation Coach Assistant</h3>
+            <div class="opp-company">YMCA of Honolulu</div>
+            <div class="opp-loc">Nuʻuanu & Metro Honolulu</div>
+            <p class="opp-desc">Help mentor children in after-school sports leagues, swimming instruction, and leadership development activities.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: sports@ymcahonolulu.org</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="opp-card" data-category="tech" data-keywords="web development intern code spark oahu">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Coding"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#0284c7;">Paid Internship ($18.00/hr)</span><span class="opp-spots">2 Openings</span></div>
+            <h3>Junior Web & Software Assistant</h3>
+            <div class="opp-company">CodeSpark Hawaiʻi</div>
+            <div class="opp-loc">Honolulu / Remote</div>
+            <p class="opp-desc">Assist software instructors with building student portals, testing interactive lessons, and organizing coding meetups.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: team@codesparkhi.com</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="opp-card" data-category="conservation" data-keywords="fishpond restoration helper hebi oahu">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Fishpond"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#16a34a;">Volunteer Hours</span><span class="opp-spots">10 Openings</span></div>
+            <h3>Traditional Hawaiian Fishpond Restoration Aide</h3>
+            <div class="opp-company">Paepae o Heʻeia</div>
+            <div class="opp-loc">Kaneohe (Windward Oʻahu)</div>
+            <p class="opp-desc">Learn ancestral Hawaiian land management by restoring ancient rock walls, clearing invasive mangroves, and monitoring water quality.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: admin@paepaeoheeia.org</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="opp-card" data-category="community" data-keywords="animal shelter adoption helper oahu humane society">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80" alt="Animal"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#d97706;">Volunteer Hours</span><span class="opp-spots">12 Openings</span></div>
+            <h3>Animal Care & Adoption Center Aide</h3>
+            <div class="opp-company">Hawaiian Humane Society</div>
+            <div class="opp-loc">Moiliili (Honolulu)</div>
+            <p class="opp-desc">Assist staff with socializing shelter animals, preparing enrichment toys, and greeting potential adopters.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: info@hawaiianhumane.org</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 16 -->
+        <div class="opp-card" data-category="healthcare" data-keywords="summer youth employment healthcare kaiser permanente">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Kaiser"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#e11d48;">Paid Internship ($16.00/hr)</span><span class="opp-spots">5 Openings</span></div>
+            <h3>Medical Administration & Health Tech Intern</h3>
+            <div class="opp-company">Kaiser Permanente Hawaii</div>
+            <div class="opp-loc">Honolulu & Moanalua Medical Centers</div>
+            <p class="opp-desc">Gain exposure to healthcare administration, medical record management, and patient services in a clinical environment.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: hr@kp.hawaii.org</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 17 -->
+        <div class="opp-card" data-category="community" data-keywords="court navigation youth volunteer judiciary oahu">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="Courts"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#d97706;">Volunteer Hours</span><span class="opp-spots">6 Openings</span></div>
+            <h3>Youth Court Program Volunteer Aide</h3>
+            <div class="opp-company">Hawaii State Judiciary (VIPS Oʻahu)</div>
+            <div class="opp-loc">Downtown Honolulu (King St)</div>
+            <p class="opp-desc">Support family court community outreach programs, youth mentoring circles, and administrative public service initiatives.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: vips@courts.hawaii.gov</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 18 -->
+        <div class="opp-card" data-category="mentorship" data-keywords="junior achievement classroom mentor business entrepreneurship">
+          <div class="opp-img-wrap"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="JA"></div>
+          <div class="opp-card-body">
+            <div class="opp-badge-row"><span class="opp-type" style="background:#2563eb;">Volunteer Hours</span><span class="opp-spots">7 Openings</span></div>
+            <h3>Youth Entrepreneurship & Financial Literacy Mentor</h3>
+            <div class="opp-company">Junior Achievement of Hawaiʻi</div>
+            <div class="opp-loc">Various Oʻahu High Schools</div>
+            <p class="opp-desc">Help high school peers understand money management, career planning, and the fundamentals of starting a business.</p>
+            <div class="opp-footer">
+              <span style="color: #94a3b8; font-size: 0.8rem;">Contact: info@jachawaii.org</span>
+              <a href="#signup" class="apply-link">Apply / Contact</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pagination Controls -->
+      <div class="pagination-container" id="paginationContainer">
+        <button class="page-btn" id="prevBtn" onclick="changePage(-1)" disabled>Previous Page</button>
+        <span id="pageIndicator" style="color: #bae6fd; font-weight: 800; padding: 0 15px;">Page 1 of 17</span>
+        <button class="page-btn" id="nextBtn" onclick="changePage(1)">Next Page</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS SECTION -->
+  <section class="solution-section" id="how-it-works">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag" style="background: rgba(56, 189, 248, 0.15); color: var(--blue-sky);">Simple & Direct</span>
+        <h2 class="section-title">How Ventur Works</h2>
+        <p style="color: #cbd5e1; font-size: 1.15rem;">We cut through the noise so you can connect directly with decision-makers.</p>
       </div>
 
       <div class="steps-grid">
         <div class="step-card">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80" alt="Curated list of local businesses and verified contacts in Hawaii" class="step-card-img">
-          <div class="step-number">1</div>
-          <h3>Unlock Verified Contacts</h3>
-          <p>Get instant access to a curated list of local businesses across Oahu and the islands that explicitly hire high school students and volunteers.</p>
+          <div class="step-icon-box">01</div>
+          <h3>Browse Verified Listings</h3>
+          <p>Access our curated, centralized hub of active internships and volunteer hours across Oʻahu that explicitly welcome high school applicants.</p>
         </div>
 
         <div class="step-card">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Direct outreach and connection" class="step-card-img">
-          <div class="step-number">2</div>
-          <h3>Contact Hiring Managers Directly</h3>
-          <p>Use our verified direct email addresses and phone lines to reach the real decision-maker—not a generic contact form.</p>
+          <div class="step-icon-box">02</div>
+          <h3>Connect Directly</h3>
+          <p>Skip automated application black holes. Get direct email addresses and phone lines to managers and business owners ready to hire.</p>
         </div>
 
         <div class="step-card">
-          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" alt="Successful interview and mentorship" class="step-card-img">
-          <div class="step-number">3</div>
-          <h3>Get Responses & Interviews</h3>
-          <p>Skip the waiting game. Reach managers directly, land quick interview conversations, and lock in your position.</p>
-        </div>
-      </div>
-
-      <!-- Free Access Box -->
-      <div class="price-box">
-        <span style="text-transform: uppercase; letter-spacing: 0.08em; font-weight: 800; font-size: 0.85rem; color: #38bdf8;">100% Free Access</span>
-        <div class="price-amount">FREE</div>
-        <p class="free-subtitle">Because students shouldn't have to pay for opportunities.</p>
-        <p style="font-size: 1.05rem; opacity: 0.95;">No subscriptions. No hidden fees. Completely free for students.</p>
-
-        <div class="price-guarantee">
-          <strong>🛡️ Our 30-Day Response Guarantee:</strong><br>
-          If you reach out to 3 positions and do not get a response or interview within 30 days, let us know and we will personally help you refine your outreach!
+          <div class="step-icon-box">03</div>
+          <h3>Secure Your Position</h3>
+          <p>Reach out with confidence, schedule quick introductory chats, and lock in your resume-building experience.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 4: PROOF -->
-  <section class="proof-section">
+  <!-- 100% FREE PROMISE SECTION -->
+  <section class="free-promise-section" id="free-promise">
+    <div class="container">
+      <div class="free-promise-card">
+        <h2>Ventur is <span>100% Free</span> for Students</h2>
+        <p>We believe every high school student in Hawaiʻi deserves equal access to professional growth, mentorship, and community service without financial barriers. There are zero subscriptions, zero hidden fees, and zero costs—because students should never have to pay to find opportunities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY WE BUILT VENTUR SECTION -->
+  <section class="proof-section" id="why-built">
     <div class="container">
       <div class="proof-card">
-        <img class="proof-img" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=400&q=80" alt="High school student working on computer">
+        <div class="proof-badge-graphic">
+          <span>Your First Opportunity</span>
+        </div>
         <div class="proof-content">
-          <h3>Built From Real Research With Local High Schoolers</h3>
-          <p>We personally interviewed 25 local high school students to map out why finding internships felt impossible. Every contact in Ventur is manually verified with local companies that confirmed they want high school applicants.</p>
+          <h3>Why We Built Ventur</h3>
+          <p>We built Ventur because finding local internships and volunteer work in Hawaiʻi shouldn't mean getting ghosted by automated job boards. By bringing all scattered opportunities onto one clean platform, we ensure every student gets a fair shot at real-world experience.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 5: OBJECTIONS & ANSWERS -->
-  <section class="faq-section">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">Straight Answers to Your Questions</h2>
-      </div>
-
-      <div class="faq-grid">
-        <div class="faq-card">
-          <h3>Is Ventur really 100% free?</h3>
-          <p>Yes! We believe every high school student deserves fair access to real-world experience without financial barriers. There are zero fees or hidden costs.</p>
-        </div>
-
-        <div class="faq-card">
-          <h3>Will local companies actually hire high schoolers?</h3>
-          <p>Yes. Every company on Ventur has specifically confirmed they accept high school interns or student volunteers for entry-level tasks, marketing, tech, and community work.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 6: SIGN-UP CALL TO ACTION WITH EMBEDDED GOOGLE FORM -->
+  <!-- SIGN-UP CALL TO ACTION WITH EMBEDDED GOOGLE FORM -->
   <section class="cta-section" id="signup">
-    <div class="cta-geo-glow"></div>
     <div class="container">
       <div class="cta-box">
-        <h2>Ready to Land Your Local Internship?</h2>
-        <p class="cta-prompt-line">Fill out the form below to get started and unlock your verified contacts.</p>
+        <h2>Ready to Claim Your Opportunity?</h2>
+        <p class="cta-prompt-line">Fill out the student access form below to get started immediately.</p>
 
         <!-- Embedded Google Form Iframe -->
         <div class="form-embed-wrapper">
           <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeIDYF3xqXTEh4oVm_BXuJgyHePDmrFuHFXoiC8WqvEhk0WOQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
         </div>
 
-        <p class="cta-followup-line">
-          We review all student responses and get back to you within 24 hours.
+        <p style="font-size: 0.95rem; color: #94a3b8; margin-top: 1.75rem; font-weight: 700;">
+          100% Free for Students | Verified Local Oʻahu Contacts | No Hidden Fees
         </p>
       </div>
     </div>
@@ -941,9 +1145,83 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Ventur. All rights reserved. Helping high schoolers build real-world experience.</p>
+      <p>&copy; 2026 Ventur. All rights reserved. Empowering Hawaii students with real-world experience.</p>
     </div>
   </footer>
+
+  <!-- Interactive Search, Filter & Pagination Script -->
+  <script>
+    let currentCategory = 'all';
+    let currentPage = 1;
+    const itemsPerPage = 6;
+
+    function setCategory(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentCategory = category;
+      currentPage = 1;
+      updatePagination();
+    }
+
+    function filterOpportunities() {
+      currentPage = 1;
+      updatePagination();
+    }
+
+    function changePage(direction) {
+      const visibleCards = getFilteredCards();
+      const totalPages = Math.ceil(visibleCards.length / itemsPerPage);
+      
+      currentPage += direction;
+      if (currentPage < 1) currentPage = 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+      
+      updatePagination();
+    }
+
+    function getFilteredCards() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const cards = Array.from(document.querySelectorAll('.opp-card'));
+      
+      return cards.filter(card => {
+        const category = card.getAttribute('data-category');
+        const keywords = card.getAttribute('data-keywords').toLowerCase();
+        const textContent = card.innerText.toLowerCase();
+        
+        const matchesCategory = (currentCategory === 'all' || category === currentCategory);
+        const matchesSearch = (keywords.includes(query) || textContent.includes(query));
+
+        return matchesCategory && matchesSearch;
+      });
+    }
+
+    function updatePagination() {
+      const allCards = Array.from(document.querySelectorAll('.opp-card'));
+      const visibleCards = getFilteredCards();
+      const totalPages = Math.ceil(visibleCards.length / itemsPerPage) || 1;
+
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+
+      allCards.forEach(card => card.style.display = 'none');
+
+      visibleCards.slice(startIndex, endIndex).forEach(card => {
+        card.style.display = 'flex';
+      });
+
+      // Update button states
+      document.getElementById('prevBtn').disabled = (currentPage === 1);
+      document.getElementById('nextBtn').disabled = (currentPage === totalPages || totalPages === 0);
+      document.getElementById('pageIndicator').innerText = `Page ${currentPage} of ${totalPages}`;
+    }
+
+    // Initialize pagination on load
+    window.onload = function() {
+      updatePagination();
+    };
+  </script>
 
 </body>
 </html>
